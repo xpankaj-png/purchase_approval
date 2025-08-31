@@ -3,7 +3,6 @@ import { Filter, X } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import { Dropdown } from '../ui/Dropdown';
-import { validateForm } from '../../utils/validationUtils';
 
 interface FilterOption {
   value: string;

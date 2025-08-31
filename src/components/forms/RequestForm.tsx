@@ -38,7 +38,7 @@ export const RequestForm: React.FC<{ onSuccess?: () => void }> = ({ onSuccess })
     }
   };
 
-  const validateRequestForm = () => {
+  const validateForm = () => {
     const validationRules = {
       description: commonRules.description,
       vendor: commonRules.vendor,
@@ -61,7 +61,7 @@ export const RequestForm: React.FC<{ onSuccess?: () => void }> = ({ onSuccess })
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!validateRequestForm()) return;
+    if (!validateForm()) return;
     if (!user) return;
 
     setLoading(true);

@@ -21,10 +21,6 @@ export const ReportsPage: React.FC = () => {
   const [reportType, setReportType] = useState('summary');
   const [selectedDepartment, setSelectedDepartment] = useState('all');
 
-  const departments = useMemo(() => {
-    return [...new Set(requests.map(req => req.department))];
-  }, [requests]);
-
   const reportData = useMemo(() => {
     const now = new Date();
     const daysAgo = new Date(now.getTime() - parseInt(dateRange) * 24 * 60 * 60 * 1000);
@@ -75,7 +71,11 @@ export const ReportsPage: React.FC = () => {
       departmentBreakdown,
       requests: filteredRequests
     };
-  }, [requests, dateRange, selectedDepartment, user, departments]);
+  }, [requests, dateRange, selectedDepartment, user]);
+
+  const departments = useMemo(() => {
+    return [...new Set(requests.map(req => req.department))];
+  }, [requests]);
 
   const exportToCSV = () => {
     const headers = [
